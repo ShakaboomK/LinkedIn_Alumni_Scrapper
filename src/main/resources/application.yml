@@ -3,12 +3,25 @@ spring:
     name: LinkedInAlumniProfile
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: "jdbc:postgresql://localhost:5432/alumni"
-    username: myuser
-    password: mypassword
+    url: ${DB_URL}
+    username: ${DB_USER_NAME}
+    password: ${DB_PASSWORD}
   jpa:
     hibernate:
       ddl-auto: update
     show-sql: true
 server:
   port: 8525
+my:
+  app:
+    api_key: ${PHANTOMBUSTER_API_KEY}
+    agent_id: ${PHANTOMBUSTER_AGENT_ID}
+    identity_id: ${PHANTOMBUSTER_IDENTITY_ID}
+    session_cookie: ${PHANTOMBUSTER_SESSION_COOKIE}
+    user_agent: ${PHANTOMBUSTER_USER_AGENT}
+
+logging:
+  level:
+    com:
+      FreightFox:
+       LinkedInAluminiProfile: DEBUG
