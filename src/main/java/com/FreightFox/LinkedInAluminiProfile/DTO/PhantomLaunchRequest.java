@@ -14,4 +14,3 @@ public class PhantomLaunchRequest {
     private Map<String, Object> arguments;
 
 }
-

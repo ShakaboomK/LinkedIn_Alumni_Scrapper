@@ -19,9 +19,4 @@ public class AlumniProfileService {
         return alumniProfileRepository.findAll();
     }
 
-//    public List<AlumniProfile> searchAndSaveAlumniProfiles(String university, String designation, String passoutYear){
-//        List<AlumniProfile> results = phantomBusterService.searchAlumniProfiles(university, designation, passoutYear);
-//        return alumniProfileRepository.saveAll(results);
-//    }
-
 }
