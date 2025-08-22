@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class AlumniProfileSearchRequest {
     private String university;
-    private String location;
+    private String designation;
     private int passoutYear;
 
 }
