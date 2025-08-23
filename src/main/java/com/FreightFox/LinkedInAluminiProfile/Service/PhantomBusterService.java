@@ -43,7 +43,7 @@ public class PhantomBusterService {
         argument.put("numberOfLinesPerLaunch", 10);
         argument.put("enrichLeadsWithAdditionalInformation", true);
         argument.put("linkedInSearchUrl", searchUrl);
-        argument.put("removeDuplicateProfiles", true);
+        argument.put("removeDuplicateProfiles", false);
         argument.put("csvName", "alumni_results");
 
         Map<String, Object> identity = new HashMap<>();
