@@ -8,10 +8,12 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Slf4j
 @Service
 @RequiredArgsConstructor
 public class AlumniProfileService {
@@ -20,9 +22,11 @@ public class AlumniProfileService {
 
     @Transactional
     public void saveAlumniFromWebhookResult(String resultObject) throws Exception {
-        ObjectMapper objectMapper = new ObjectMapper();
+        log.info("received result object: \n{}", resultObject);
+        if (resultObject == null || resultObject.isBlank()) {
+            throw new IllegalArgumentException("Webhook resultObject is null or blank!");
+        }
 
-        // resultObjectStr is a JSON string that is actually a JSON array
         List<AlumniProfileDTO> alumniList = objectMapper.readValue(resultObject,
                 new TypeReference<List<AlumniProfileDTO>>() {});
         if (alumniList == null || alumniList.isEmpty()) {

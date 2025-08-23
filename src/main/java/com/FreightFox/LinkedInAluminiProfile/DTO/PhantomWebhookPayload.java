@@ -1,5 +1,6 @@
 package com.FreightFox.LinkedInAluminiProfile.DTO;
 
+import com.fasterxml.jackson.databind.JsonNode;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -20,6 +21,6 @@ public class PhantomWebhookPayload {
     private long runDuration;
     private String exitMessage;
     private int exitCode;
-    private String resultObject;
+    private JsonNode resultObject;
 
 }
