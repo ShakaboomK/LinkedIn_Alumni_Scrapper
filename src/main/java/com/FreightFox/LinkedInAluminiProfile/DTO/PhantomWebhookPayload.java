@@ -16,10 +16,10 @@ public class PhantomWebhookPayload {
     private String script;
     private String scriptOrg;
     private String branch;
-    private int launchDuration;
-    private int runDuration;
-    private Object resultObject;
+    private long launchDuration;
+    private long runDuration;
     private String exitMessage;
     private int exitCode;
+    private String resultObject;
 
 }
