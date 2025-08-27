@@ -1,4 +1,4 @@
-package com.FreightFox.LinkedInAluminiProfile.Controller;
+package com.KKStands.LinkedInAlumniProfile.Controller;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

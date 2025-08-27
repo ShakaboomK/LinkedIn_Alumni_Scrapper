@@ -1,6 +1,6 @@
-package com.FreightFox.LinkedInAluminiProfile.Repository;
+package com.KKStands.LinkedInAlumniProfile.Repository;
 
-import com.FreightFox.LinkedInAluminiProfile.Entity.AlumniProfile;
+import com.KKStands.LinkedInAlumniProfile.Entity.AlumniProfile;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

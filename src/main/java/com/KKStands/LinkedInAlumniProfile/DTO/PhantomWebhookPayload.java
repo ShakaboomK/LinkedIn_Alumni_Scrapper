@@ -1,4 +1,4 @@
-package com.FreightFox.LinkedInAluminiProfile.DTO;
+package com.KKStands.LinkedInAlumniProfile.DTO;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import lombok.AllArgsConstructor;

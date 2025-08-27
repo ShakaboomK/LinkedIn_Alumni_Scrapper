@@ -1,4 +1,4 @@
-package com.FreightFox.LinkedInAluminiProfile.Service;
+package com.KKStands.LinkedInAlumniProfile.Service;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;

@@ -1,4 +1,4 @@
-package com.FreightFox.LinkedInAluminiProfile.DTO;
+package com.KKStands.LinkedInAlumniProfile.DTO;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

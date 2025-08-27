@@ -1,4 +1,4 @@
-package com.FreightFox.LinkedInAluminiProfile;
+package com.KKStands.LinkedInAlumniProfile;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -1,9 +1,8 @@
-package com.FreightFox.LinkedInAluminiProfile.Service;
+package com.KKStands.LinkedInAlumniProfile.Service;
 
-import com.FreightFox.LinkedInAluminiProfile.DTO.AlumniProfileDTO;
-import com.FreightFox.LinkedInAluminiProfile.Entity.AlumniProfile;
-import com.FreightFox.LinkedInAluminiProfile.Repository.AlumniProfileRepository;
-import com.fasterxml.jackson.core.JsonParser;
+import com.KKStands.LinkedInAlumniProfile.DTO.AlumniProfileDTO;
+import com.KKStands.LinkedInAlumniProfile.Entity.AlumniProfile;
+import com.KKStands.LinkedInAlumniProfile.Repository.AlumniProfileRepository;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -30,12 +29,13 @@ public class AlumniProfileService {
 
         List<AlumniProfileDTO> alumniList = null;
 
-        if (resultObject == null) {
-            throw new IllegalArgumentException("Webhook resultObject is null!");
+        if (resultObject == null ||resultObject instanceof com.fasterxml.jackson.databind.JsonNode node && node.isNull()) {
+
+            log.warn("No alumni data found in resultObject. Skipping save operation.");
+            return;
         }
 
         if (resultObject instanceof String str) {
-            // String may have quotes trimmed—recover if needed
             if (str.isBlank()) throw new IllegalArgumentException("resultObject string is blank");
             alumniList = objectMapper.readValue(str, new TypeReference<List<AlumniProfileDTO>>() {});
         } else if (resultObject instanceof List<?>) {
@@ -51,7 +51,7 @@ public class AlumniProfileService {
                 throw new IllegalArgumentException("Unknown JsonNode resultObject structure: " + node);
             }
         } else {
-            // Generic fallback—try direct mapping
+            // Generic fallback
             alumniList = objectMapper.convertValue(resultObject, new TypeReference<List<AlumniProfileDTO>>() {});
         }
 
@@ -59,8 +59,17 @@ public class AlumniProfileService {
             throw new IllegalArgumentException("Result object is empty or not a valid alumni list.");
         }
 
+
         for (AlumniProfileDTO dto : alumniList) {
+
+            if (dto.getProfileUrl() == null || dto.getProfileUrl().isBlank()) {
+                log.warn("Skipping alumni due to missing LinkedIn profile URL: {}", dto);
+                continue;
+            }
+
             if (repository.existsByLinkedinProfileUrl(dto.getProfileUrl())) continue;
+
+
             AlumniProfile entity = new AlumniProfile();
             entity.setName(dto.getFullName());
             entity.setLinkedinProfileUrl(dto.getProfileUrl());

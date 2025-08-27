@@ -1,4 +1,4 @@
-package com.FreightFox.LinkedInAluminiProfile.ExceptionHandler;
+package com.KKStands.LinkedInAlumniProfile.ExceptionHandler;
 
 import org.springframework.web.bind.annotation.ControllerAdvice;
 

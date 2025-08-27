@@ -1,11 +1,11 @@
-package com.FreightFox.LinkedInAluminiProfile.Controller;
+package com.KKStands.LinkedInAlumniProfile.Controller;
 
-import com.FreightFox.LinkedInAluminiProfile.DTO.AlumniProfileSearchRequest;
-import com.FreightFox.LinkedInAluminiProfile.DTO.PhantomWebhookPayload;
-import com.FreightFox.LinkedInAluminiProfile.Entity.AlumniProfile;
-import com.FreightFox.LinkedInAluminiProfile.Service.AlumniProfileService;
-import com.FreightFox.LinkedInAluminiProfile.Service.PhantomBusterService;
-import com.FreightFox.LinkedInAluminiProfile.Utils.MyUtilClass;
+import com.KKStands.LinkedInAlumniProfile.DTO.AlumniProfileSearchRequest;
+import com.KKStands.LinkedInAlumniProfile.DTO.PhantomWebhookPayload;
+import com.KKStands.LinkedInAlumniProfile.Entity.AlumniProfile;
+import com.KKStands.LinkedInAlumniProfile.Service.AlumniProfileService;
+import com.KKStands.LinkedInAlumniProfile.Service.PhantomBusterService;
+import com.KKStands.LinkedInAlumniProfile.Utils.MyUtilClass;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -49,7 +49,7 @@ public class AlumniProfileController {
             log.info("(RAW) resultObject: \n{}", payload.getResultObject());
             if (payload.getResultObject() == null) return ResponseEntity.badRequest().body("Missing resultObject");
             alumniProfileService.saveAlumniFromWebhookResult(payload.getResultObject());
-            log.info("saved the alumni details successfully");
+//            log.info("saved the alumni details successfully");
             return ResponseEntity.ok("Webhook processed successfully");
         } catch (Exception e) {
             log.error("Error processing webhook payload", e);

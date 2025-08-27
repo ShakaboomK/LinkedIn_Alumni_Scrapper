@@ -1,4 +1,4 @@
-package com.FreightFox.LinkedInAluminiProfile;
+package com.KKStands.LinkedInAlumniProfile;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

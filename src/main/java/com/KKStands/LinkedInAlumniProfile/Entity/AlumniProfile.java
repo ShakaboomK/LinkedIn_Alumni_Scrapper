@@ -1,4 +1,4 @@
-package com.FreightFox.LinkedInAluminiProfile.Entity;
+package com.KKStands.LinkedInAlumniProfile.Entity;
 
 import jakarta.annotation.Nullable;
 import jakarta.persistence.*;

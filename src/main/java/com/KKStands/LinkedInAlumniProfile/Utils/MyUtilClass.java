@@ -1,4 +1,4 @@
-package com.FreightFox.LinkedInAluminiProfile.Utils;
+package com.KKStands.LinkedInAlumniProfile.Utils;
 
 import lombok.experimental.UtilityClass;
 
