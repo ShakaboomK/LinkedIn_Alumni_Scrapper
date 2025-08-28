@@ -45,11 +45,9 @@ public class AlumniProfileController {
     public ResponseEntity<String> handlePhantomWebhook(@RequestBody PhantomWebhookPayload payload) {
         try {
             log.info("Webhook received for agentId: {}", payload.getAgentId());
-            log.info("Payload Which is received (RAW): \n{}", payload);
-            log.info("(RAW) resultObject: \n{}", payload.getResultObject());
+            log.info("Payload Which is received");
             if (payload.getResultObject() == null) return ResponseEntity.badRequest().body("Missing resultObject");
             alumniProfileService.saveAlumniFromWebhookResult(payload.getResultObject());
-//            log.info("saved the alumni details successfully");
             return ResponseEntity.ok("Webhook processed successfully");
         } catch (Exception e) {
             log.error("Error processing webhook payload", e);
