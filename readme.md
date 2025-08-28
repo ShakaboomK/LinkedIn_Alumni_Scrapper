@@ -31,6 +31,7 @@ The backend exposes RESTful APIs allowing clients to trigger searches and receiv
 - JUnit 5 & Mockito for testing
 - Reactor (Spring WebFlux) for reactive API clients (PhantomBuster)
 - Maven for build and dependency management
+- ngrok for local webhook url connection (required for PhantomBuster API)
 
 ---
 
@@ -156,9 +157,17 @@ text
 
 ## Notes & Recommendations
 
-- Consider optimizing database writes by batch inserts if processing large data volumes.
+
 - Monitor skipped profiles (due to missing LinkedIn URLs) to assess data completeness.
-- Ensure PhantomBuster agents are configured to run successfully and the webhook URL is reachable.
+- Ensure PhantomBuster agents are configured in your Phantom Buster Account to run successfully and the webhook URL is reachable. install ngrok locally and map your application port with ngrok using command in windows or Linux based OS
+```bash
+
+ngrok http <your port_number>
+#this will create a https url which you can use for setting up the
+#webhook url for your phantom buster Agent. make sure to copy the produced link
+#and paste it in your Phantom Buster LinkedIn search Export Agent's webhook configuration.
+```
+- this will create a https 
 - For production, secure APIs with authentication & HTTPS.
 
 ---
